@@ -1,0 +1,200 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  /* transition: background-image ease 0.5s; */
+  background-color: #232325!important;
+}
+.search_input{
+  width: 70%;
+  height: 70px ;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  border-radius: 20px;
+}
+.search_input_section{
+  height: 100vh;
+  transition: all 1s ease;
+  background-image: url("../src/assets/(3\).jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_box{
+width: 700px;
+background-color: white;
+border: rgb(255, 255, 255) 4px solid;
+display: flex;
+align-items: center;
+justify-content: left;
+padding: 20px;
+height: 80px;
+border-radius: 20px;
+transition: all 0.5s ease ;
+}
+.search_buttons{
+  display: flex;
+  justify-content: right;
+  width: 30%;
+
+}
+.search_buttons button{
+  width: 60px;
+  border: none;
+  background:transparent;
+  height: 60px;
+  margin-left: 20px;
+  font-size:40px;
+  color: rgb(41, 40, 40);
+}
+.search_box_active{
+  border: rgb(247, 207, 29) 4px solid;
+  
+  
+}
+.search_buttons_onfocus{
+  display: flex;
+  width: 200px;
+  justify-content: right;
+}
+.search_buttons_onfocus button{
+  width: 150px;
+  height: 60px;
+  background-color: rgb(247, 207, 29);
+  border-radius: 15px;
+  border: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: black;
+  font-size: 24px;
+}
+.search_buttons_onfocus button:hover{
+  color: rgb(105, 100, 100);
+  background-color: rgb(255, 211, 18);
+}
+.search_done{
+  height: 200px;
+  background-image: none;
+  display: flex;  
+  
+}
+.image_hover{
+  position: relative;
+}
+.image_hover_box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0px);
+  background-color:rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.image_hover .buttons{
+  align-items: center;
+  height: 100%;
+}
+.image_hover_box:hover{
+  opacity: 1;
+  background-color:rgba(0, 0, 0, 0.8);
+  /* cursor: pointer; */
+}
+.icon_button{
+  border: none;
+  background: none;
+  color: rgb(255, 255, 255); 
+  font-size: 28px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: 0.5s all ease;
+}
+.icon_button:hover{
+  background-color: #0d6efd;;  ;
+}
+.loader{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+.fixed_section{
+  position: fixed;
+  top: 50px;
+  left: 250px;
+  border-radius: 20px;
+  width: 950px;
+  height: 500px;
+  background-color: #3d3d41;
+  padding-left: 50px;
+  
+}
+.img_fixed{
+  width: 600px;
+}
+.close{
+position: absolute;
+color: white;
+font-size: 30px;
+top: 10px;
+font-weight: 600;
+right: 30px;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+.close:hover{
+  color: rgb(231, 113, 113);
+}
+.img_fixed_section{
+  margin-top: 40px!important;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.img_fixed_section button{
+position: absolute;
+}
+.p_a{
+  position: relative;
+}
+.chap {
+  margin-top: 60px;
+
+}
+.plus{
+right: 2px;
+height: 100%;
+width: 50px;
+border: none;
+background-color: rgba(0, 0, 0, 0.1);
+color: white;
+font-size: 20px;
+font-weight: 600;
+transition: all 0.5s ease;
+}
+.plus:hover{
+background-color: rgba(0, 0, 0, 0.8);
+
+}
+.minus:hover{
+  background-color: rgba(0, 0, 0, 0.8);
+  
+  }
+.minus{
+  left: 10px;
+  height: 100%;
+  width: 50px;
+  border: none;
+  font-size: 20px;
+font-weight: 600;
+
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: all 0.5s ease;
+}
