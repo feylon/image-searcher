@@ -51,8 +51,9 @@
 
 
 <div v-if="data" class="w-100 d-flex justify-content-center">
-<button class="btn btn-primary" @click="number ++;submit()">Yana yuklash</button>
+<button v-if="next_page" class="btn btn-primary" @click="downloadadd(next_page)">Yana yuklash</button>
 </div>
+<p v-if="!step" class="text-light text-center">"{{ history }}" so'rov bo'yicha hech narsa topilmadi</p>
 
 </div>
 
@@ -71,8 +72,12 @@
     </div>
     <div class="col-4 chap">
       <div class="chap"><div class="text-light">
-     Pthotografic:   <a :href="data[current].url" target="_blank">{{ data[current].photographer }}</a>        
-      </div></div>
+<p>
+  Photografikchi:   <a  class="text-light" :href="data[current].url" target="_blank">{{ data[current].photographer }}</a>        
+
+</p> 
+<p>Razmeri : {{ data[current].height }} X {{data[current].width}}</p>
+</div></div>
     </div>
   </div>
   <p @click="fixed = false" class="close">
@@ -91,13 +96,16 @@ let search_box_active = ref(false);
 let load = ref(false)
 let fixed = ref(false);
 let current = ref(0);
-let current_step = ref(0)
+let current_step = ref(0);
+let step = ref(0);
+let history = ref("")
+let next_page = ref("");
 
 let current_item = (item)=>{
 current.value = item;
 current_step.value = item; 
 fixed.value = true;
-
+let yana = ref(false);
 }
 let current_step_changer = (value)=>{
 if(value == -1)return;
@@ -113,19 +121,19 @@ let number = ref(1);
 let submit = async ()=>{
   search_done.value = true;
   let apiKey = "eVoQR3g7m47VrH1VKePZ7NlSKKtuzAwqbUDfDGjj0ynCMYBGl0klLgSy"
-  // stopPropagation();
   let start = 24;
-  // let end = 1;
   let url = `https://api.pexels.com/v1/search?query=${input.value}&page=${number.value}&per_page=${start}`;
 fetch(url,{
   headers:{Authorization:apiKey}
 }).then(i=>i.json()).then(i=>{
   console.log(i)
   i.photos.forEach(j=>data.value.push(j));
+  step.value = i.total_results ;
+  history.value = input.value;
+  next_page.value = i.next_page;
   load.value = true;
 }).catch(err=>{console.log(err)})
   
-// let  backend = await fetch("http://127.0.0.1:5500/src/backend/file.json");
 }
 let download = (url)=>{
 let a = document.createElement("a");
@@ -144,6 +152,19 @@ let fixed_disabled = ()=>{
 let scroller = (e)=>{
 console.log(e);
 console.log(event.target.value);
+}
+let downloadadd = (url)=>{
+  fetch(url,{
+  headers:{Authorization:"eVoQR3g7m47VrH1VKePZ7NlSKKtuzAwqbUDfDGjj0ynCMYBGl0klLgSy"}
+}).then(i=>i.json()).then(i=>{
+  console.log(i)
+  i.photos.forEach(j=>data.value.push(j));
+  step.value = i.total_results ;
+  history.value = input.value;
+  next_page.value = i.next_page;
+  load.value = true;
+}).catch(err=>{console.log(err)})
+  
 }
 </script>
 <style>

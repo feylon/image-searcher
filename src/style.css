@@ -198,3 +198,12 @@ font-weight: 600;
   color: white;
   transition: all 0.5s ease;
 }
+@media (max-width:990px) {
+  .fixed_section{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  
+}
